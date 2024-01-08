@@ -1,9 +1,3 @@
-<?php
-
-include "connection.php";
-
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -89,24 +83,8 @@ include "connection.php";
                             <div class="col-6">
                                 <label class="form-label">Gender</label>
                                 <select class="form-control" id="gender">
-
-                                    <?php
-
-                                    $rs = Database::search("SELECT * FROM `gender`");
-                                    $num = $rs->num_rows;
-
-                                    for ($x = 0; $x < $num; $x++) {
-                                        $data = $rs->fetch_assoc();
-                                    ?>
-
-                                        <option value="<?php echo $data["gender_id"]; ?>">
-                                            <?php echo $data["gender_name"]; ?>
-                                        </option>
-
-                                    <?php
-                                    }
-
-                                    ?>
+                                    <option value="1">Male</option>
+                                    <option value="1">Female</option>
 
                                 </select>
                             </div>
@@ -138,26 +116,15 @@ include "connection.php";
                                 </div>
                             </div>
 
-                            <?php
-                            $email = "";
-                            $password = "";
 
-                            if (isset($_COOKIE["email"])) {
-                                $email = $_COOKIE["email"];
-                            }
-
-                            if (isset($_COOKIE["password"])) {
-                                $password = $_COOKIE["password"];
-                            }
-                            ?>
 
                             <div class="col-12">
                                 <label class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email2" value="<?php echo $email; ?>" />
+                                <input type="email" class="form-control" id="email2" value="" />
                             </div>
                             <div class="col-12">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password2" value="<?php echo $password; ?>" />
+                                <input type="password" class="form-control" id="password2" value="" />
                             </div>
                             <div class="col-6">
                                 <div class="form-check">
@@ -199,7 +166,7 @@ include "connection.php";
                                 <div class="col-6">
                                     <label class="form-label">New Password</label>
                                     <div class="input-group mb-3">
-                                        <input type="password" class="form-control" id="np"/>
+                                        <input type="password" class="form-control" id="np" />
                                         <button id="npb" class="btn btn-outline-secondary" type="button" onclick="showPassword1();">Show</button>
                                     </div>
                                 </div>
@@ -207,14 +174,14 @@ include "connection.php";
                                 <div class="col-6">
                                     <label class="form-label">Re-type Password</label>
                                     <div class="input-group mb-3">
-                                        <input type="password" class="form-control" id="rnp"/>
+                                        <input type="password" class="form-control" id="rnp" />
                                         <button id="rnpb" class="btn btn-outline-secondary" type="button" onclick="showPassword2();">Show</button>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <label class="form-label">Verification Code</label>
-                                    <input type="text" class="form-control" id="vcode"/>
+                                    <input type="text" class="form-control" id="vcode" />
                                 </div>
 
                             </div>
